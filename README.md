@@ -145,6 +145,50 @@ Cf. [`./ressources/README.md`](./ressources/README.md) pour l'ordre de mobilisat
 
 ---
 
+## 🛠️ Utilisation de `src/anonymize.py`
+
+Le script `src/anonymize.py` prend un fichier CSV en entrée, anonymise la colonne `manager_comments`, puis écrit un nouveau fichier dans le même dossier avec le suffixe :
+
+`<nom_fichier>_anonymized_romain.csv`
+
+Exemple :
+- entrée : `data/audit_sample.csv`
+- sortie : `data/audit_sample_anonymized_romain.csv`
+
+### Exécution en ligne de commande
+
+```bash
+python src/anonymize.py data/audit_sample.csv
+```
+
+### Ce que fait le script
+
+1. Charge le CSV passé en argument (`Path`)
+2. Vérifie la présence de la colonne `manager_comments`
+3. Anonymise le texte de cette colonne (`PERSON`, `LOC`, `EMAIL`, `PHONE`, `IBAN`)
+4. Enregistre le CSV anonymisé avec le nom attendu
+
+### Erreurs gérées
+
+- Fichier introuvable
+- Colonne `manager_comments` absente
+
+---
+
+## 🔗 Liens utiles du projet
+
+### Notebooks
+
+- [notebooks/M2-B2_Anonymisation-romain.ipynb](./notebooks/M2-B2_Anonymisation-romain.ipynb) : notebook principal du travail individuel (audit PII + tests de stratégie d'anonymisation).
+- [notebooks/M2-B2_Tom_Romain.ipynb](./notebooks/M2-B2_Tom_Romain.ipynb) : notebook de travail binôme/historique (phase sync), utile pour retrouver le contexte d'audit initial.
+
+### Documents d'explication (.md)
+
+- [datasheet.md](./datasheet.md) : datasheet du dataset selon la trame Gebru (contexte, collecte, limites, usages, risques).
+- [reflexion.md](./reflexion.md) : justification de la stratégie d'anonymisation choisie, trade-offs RGPD/AI Act, limites et pistes d'industrialisation.
+
+---
+
 ## 🆘 Bloqué·e ?
 
 1. Relis le mini-cours concerné (cf. [`./ressources/README.md`](./ressources/README.md)).
