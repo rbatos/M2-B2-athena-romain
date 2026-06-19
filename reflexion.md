@@ -17,7 +17,7 @@ J'applique une **approche différenciée** selon la sensibilité et l'utilité d
   - Mixé avec une généralisation (ex. `PERSON_hash`)
   - **Logique** : garde le contexte RH nécessaire à l'analyse d'augmentations ou d'évolutions
 
-- **EMAIL, PHONE, IBAN** → généralisés par [EMAIL], [PHONE], [IBAN] :
+- **EMAIL, PHONE, IBAN, LOC** → généralisés par [EMAIL], [PHONE], [IBAN], [LOC] :
   - Ces trois PII sont **inutiles** dans le contexte RH d'analyse d'augmentations ou d'évolutions.
   - Risque RGPD maximal (coordonnées directes, données financières).
 
@@ -51,6 +51,10 @@ J'applique une **approche différenciée** selon la sensibilité et l'utilité d
 - **Numéros IBAN partiels** → généralisation complète (remplacé par `[IBAN]`)
   - Expose des données financières même masquées.
   - Sans intérêt pour prédire une augmentation ou une carrière.
+
+- **Localisations précises (LOC)** → généralisation complète (remplacé par `[LOC]`)
+  - Réduit le risque de ré-identification par contexte (site, quartier, adresse implicite).
+  - Le contexte métier reste exploitable via les entités géopolitiques plus larges (GPE).
 
 ## Trade-offs assumés
 
